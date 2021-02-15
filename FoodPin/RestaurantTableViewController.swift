@@ -37,7 +37,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func configureDataSource() -> UITableViewDiffableDataSource<Section, String> {
-        let cellIdentifier = "datacell"
+        let cellIdentifier = "favoritecell"
         let dataSource = UITableViewDiffableDataSource<Section, String>(
             tableView: tableView,
             cellProvider: { tableView, indexPath, restaurantName in
@@ -47,7 +47,8 @@ class RestaurantTableViewController: UITableViewController {
                 cell.locationLabel.text = self.restaurantLocations[indexPath.row]
                 cell.typeLabel.text = self.restaurantTypes[indexPath.row]
                 cell.thumbnailImageView.image = UIImage(named: restaurantName)
-                cell.accessoryType = self.restaurantIsFavorites[indexPath.row] ? .checkmark : .none
+                cell.hearthImageView.isHidden = self.restaurantIsFavorites[indexPath.row] ? false : true
+                
                 return cell
             })
         return dataSource
@@ -78,15 +79,14 @@ class RestaurantTableViewController: UITableViewController {
         let favoriteNotFavorite = self.restaurantIsFavorites[indexPath.row] ? "Remove from favorites" : "Mark as favorite"
         let favoriteAction = UIAlertAction(title: favoriteNotFavorite, style: .default, handler: { (action:UIAlertAction!)  -> Void in
             
-            let cell = tableView.cellForRow(at: indexPath)
-            cell?.tintColor = .systemYellow
+            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+            
+            cell.hearthImageView.isHidden = self.restaurantIsFavorites[indexPath.row]
             if self.restaurantIsFavorites[indexPath.row] == true {
                 self.restaurantIsFavorites[indexPath.row] = false
-                cell?.accessoryType = .none
             } else {
                 self.restaurantIsFavorites[indexPath.row] = true
-                cell?.accessoryType = .checkmark
-            }
+            } 
         })
         optionMenu.addAction(favoriteAction)
         
