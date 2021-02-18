@@ -75,7 +75,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="hearthImageView" destination="Oo1-Sq-8Hb" id="4IT-W7-d0i"/>
+                                    <outlet property="heartImageView" destination="Oo1-Sq-8Hb" id="Z3z-jl-WPm"/>
                                     <outlet property="locationLabel" destination="N8c-lW-4fO" id="bhX-Y1-oqh"/>
                                     <outlet property="nameLabel" destination="Xel-tb-NoA" id="ISK-wm-98g"/>
                                     <outlet property="thumbnailImageView" destination="ln4-1B-LE2" id="FHV-XO-KNm"/>
@@ -146,7 +146,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="hearthImageView" destination="y5N-zt-Oka" id="OSt-4B-r1C"/>
+                                    <outlet property="heartImageView" destination="y5N-zt-Oka" id="2vF-HA-8pH"/>
                                     <outlet property="locationLabel" destination="XgW-TG-NkS" id="Dfw-dX-eoB"/>
                                     <outlet property="nameLabel" destination="bsi-Yq-5B9" id="gyw-k4-C6Y"/>
                                     <outlet property="thumbnailImageView" destination="H8v-8w-hw5" id="LrF-s7-gT8"/>
