@@ -12,6 +12,7 @@ class RestaurantDetailHeaderView: UIView {
     @IBOutlet var restaurantNameLabel: UILabel! {
         didSet {
             restaurantNameLabel.numberOfLines = 0
+            restaurantNameLabel.adjustsFontForContentSizeCategory = true
             
             if let customFont = UIFont(name: "Nunito-Bold", size: 40.0) {
                 restaurantNameLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: customFont)
@@ -20,6 +21,8 @@ class RestaurantDetailHeaderView: UIView {
     }
     @IBOutlet var restaurantTypeLabel: UILabel! {
         didSet {
+            restaurantTypeLabel.numberOfLines = 0
+            restaurantTypeLabel.adjustsFontForContentSizeCategory = true
             if let customFont = UIFont(name: "Nunito-Bold", size: 20.0) {
                 restaurantTypeLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: customFont)
             }

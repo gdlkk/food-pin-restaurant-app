@@ -8,9 +8,24 @@
 import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var typeLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel! {
+        didSet {
+            nameLabel.numberOfLines = 0
+            nameLabel.adjustsFontForContentSizeCategory = true
+        }
+    }
+    @IBOutlet var locationLabel: UILabel! {
+        didSet {
+            locationLabel.numberOfLines = 0
+            locationLabel.adjustsFontForContentSizeCategory = true
+        }
+    }
+    @IBOutlet var typeLabel: UILabel! {
+        didSet {
+            typeLabel.numberOfLines = 0
+            typeLabel.adjustsFontForContentSizeCategory = true
+        }
+    }
     @IBOutlet var thumbnailImageView: UIImageView! {
         didSet {
             thumbnailImageView.layer.cornerRadius = 20.0
