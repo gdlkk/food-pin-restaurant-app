@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -173,7 +174,7 @@
             <objects>
                 <viewController id="jAJ-Hc-Ej5" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="riy-Wb-uUX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="7Re-ds-vnm" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="FoodPin" customModuleProvider="target">
@@ -187,6 +188,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXy-Mt-Mrh">
+                                    <rect key="frame" x="342" y="375" width="52" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="UYS-DR-ILa"/>
+                                        <constraint firstAttribute="width" constant="52" id="pSE-Z0-ME2"/>
+                                    </constraints>
+                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oGD-HO-oHF">
                                     <rect key="frame" x="20" y="371" width="244" height="54"/>
                                     <subviews>
@@ -221,11 +229,13 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="oGD-HO-oHF" firstAttribute="leading" secondItem="7Re-ds-vnm" secondAttribute="leading" constant="20" id="4iw-qL-BLK"/>
+                                <constraint firstItem="oGD-HO-oHF" firstAttribute="bottom" secondItem="NXy-Mt-Mrh" secondAttribute="bottom" id="99J-hk-OXh"/>
                                 <constraint firstAttribute="bottom" secondItem="kbz-pd-i6T" secondAttribute="bottom" id="ALs-zH-umY"/>
                                 <constraint firstAttribute="bottom" secondItem="oGD-HO-oHF" secondAttribute="bottom" constant="20" id="Iaj-Pw-X36"/>
                                 <constraint firstItem="fBW-K5-YlK" firstAttribute="top" secondItem="7Re-ds-vnm" secondAttribute="top" id="QAd-bN-FXG"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="iJa-7B-weS" secondAttribute="trailing" constant="10" id="So9-qP-HDZ"/>
                                 <constraint firstAttribute="trailing" secondItem="oGD-HO-oHF" secondAttribute="trailing" constant="150" id="b6U-sM-Xkv"/>
+                                <constraint firstAttribute="trailing" secondItem="NXy-Mt-Mrh" secondAttribute="trailing" constant="20" id="eyd-HS-hJJ"/>
                                 <constraint firstItem="kbz-pd-i6T" firstAttribute="leading" secondItem="7Re-ds-vnm" secondAttribute="leading" id="iRJ-Qj-i7D"/>
                                 <constraint firstItem="kbz-pd-i6T" firstAttribute="top" secondItem="7Re-ds-vnm" secondAttribute="top" id="jmV-gF-P6d"/>
                                 <constraint firstAttribute="bottom" secondItem="fBW-K5-YlK" secondAttribute="bottom" id="l01-yA-xfC"/>
@@ -236,10 +246,40 @@
                             </constraints>
                             <connections>
                                 <outlet property="heartButton" destination="iJa-7B-weS" id="nF8-LW-F16"/>
+                                <outlet property="ratingImageView" destination="NXy-Mt-Mrh" id="YsS-wz-1tC"/>
                                 <outlet property="restaurantImageView" destination="fBW-K5-YlK" id="COH-Wy-1Ej"/>
                                 <outlet property="restaurantNameLabel" destination="ldQ-N6-kec" id="XIf-Hb-ajd"/>
                                 <outlet property="restaurantTypeLabel" destination="VA7-3L-PXd" id="aLC-eL-sZ9"/>
                             </connections>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="iP5-7D-9m4">
+                            <rect key="frame" x="0.0" y="838" width="414" height="90"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8r-Cg-aIK">
+                                    <rect key="frame" x="20" y="20" width="374" height="50"/>
+                                    <color key="backgroundColor" name="NavigationBarTitle"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <state key="normal" title="Rate it">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="25"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <segue destination="H7Z-Wy-QZB" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="uAN-rz-heW"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="h8r-Cg-aIK" secondAttribute="bottom" constant="20" id="C0e-M2-HpH"/>
+                                <constraint firstItem="h8r-Cg-aIK" firstAttribute="top" secondItem="iP5-7D-9m4" secondAttribute="top" constant="20" id="CXk-3P-VaN"/>
+                                <constraint firstItem="h8r-Cg-aIK" firstAttribute="leading" secondItem="iP5-7D-9m4" secondAttribute="leading" constant="20" id="KKY-n5-Ui4"/>
+                                <constraint firstAttribute="trailing" secondItem="h8r-Cg-aIK" secondAttribute="trailing" constant="20" id="eVh-I4-ezb"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailTextCell" id="XlJ-UU-ZHu" customClass="RestaurantDetailTextCell" customModule="FoodPin" customModuleProvider="target">
@@ -357,7 +397,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="QYv-yY-TQZ"/>
-                    <size key="freeformSize" width="414" height="1000"/>
+                    <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="headerView" destination="7Re-ds-vnm" id="DRU-jc-016"/>
                         <outlet property="tableView" destination="riy-Wb-uUX" id="TgT-ag-yQO"/>
@@ -395,7 +435,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am0-UX-drV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2288.4057971014495" y="-84.375"/>
+            <point key="canvasLocation" x="2288" y="-406"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="QTh-m2-O8L">
+            <objects>
+                <viewController id="H7Z-Wy-QZB" customClass="ReviewViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ne-68-OiA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r4o-ug-XA1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT6-zz-XRa">
+                                <rect key="frame" x="363.5" y="44" width="30.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LBz-xs-Jlz" kind="unwind" unwindAction="closeWithSegue:" id="0DK-3v-kmX"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UU3-rj-43J">
+                                <rect key="frame" x="96" y="207.5" width="222" height="481"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wat-BS-1Q8">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="82"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Awesome" image="love"/>
+                                        <connections>
+                                            <segue destination="LBz-xs-Jlz" kind="unwind" identifier="awesome" unwindAction="rateRestaurantWithSegue:" id="T7k-ky-yvj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="709-mc-UOc">
+                                        <rect key="frame" x="0.0" y="92" width="159" height="83"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Good" image="cool"/>
+                                        <connections>
+                                            <segue destination="LBz-xs-Jlz" kind="unwind" identifier="cool" unwindAction="rateRestaurantWithSegue:" id="PXD-CO-lWS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffz-sZ-IyY">
+                                        <rect key="frame" x="0.0" y="185" width="155" height="86"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Okay" image="happy"/>
+                                        <connections>
+                                            <segue destination="LBz-xs-Jlz" kind="unwind" identifier="okay" unwindAction="rateRestaurantWithSegue:" id="jkj-f7-9kq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acr-Ai-8oh">
+                                        <rect key="frame" x="0.0" y="281" width="136" height="87"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Bad" image="sad"/>
+                                        <connections>
+                                            <segue destination="LBz-xs-Jlz" kind="unwind" identifier="bad" unwindAction="rateRestaurantWithSegue:" id="pgV-rf-IiD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tft-ge-Hmc">
+                                        <rect key="frame" x="0.0" y="378" width="185" height="103"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Terrible" image="angry"/>
+                                        <connections>
+                                            <segue destination="LBz-xs-Jlz" kind="unwind" identifier="terrible" unwindAction="rateRestaurantWithSegue:" id="7pe-YD-5sA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t1U-Gv-chR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r4o-ug-XA1" firstAttribute="top" secondItem="4ne-68-OiA" secondAttribute="top" id="0R1-Fu-EVg"/>
+                            <constraint firstItem="UU3-rj-43J" firstAttribute="centerY" secondItem="4ne-68-OiA" secondAttribute="centerY" id="4UI-Jw-Tob"/>
+                            <constraint firstItem="t1U-Gv-chR" firstAttribute="trailing" secondItem="KT6-zz-XRa" secondAttribute="trailing" constant="20" id="5wb-EU-5HT"/>
+                            <constraint firstAttribute="bottom" secondItem="r4o-ug-XA1" secondAttribute="bottom" id="EMb-l7-Cw4"/>
+                            <constraint firstItem="KT6-zz-XRa" firstAttribute="top" secondItem="t1U-Gv-chR" secondAttribute="top" id="GEM-BT-vHy"/>
+                            <constraint firstItem="r4o-ug-XA1" firstAttribute="trailing" secondItem="t1U-Gv-chR" secondAttribute="trailing" id="bt9-2q-an6"/>
+                            <constraint firstItem="r4o-ug-XA1" firstAttribute="leading" secondItem="t1U-Gv-chR" secondAttribute="leading" id="oZa-2W-7cb"/>
+                            <constraint firstItem="UU3-rj-43J" firstAttribute="centerX" secondItem="4ne-68-OiA" secondAttribute="centerX" id="vri-CJ-Bdq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="r4o-ug-XA1" id="lsa-v3-W9g"/>
+                        <outlet property="closeButton" destination="KT6-zz-XRa" id="7cR-N3-PqI"/>
+                        <outletCollection property="rateButtons" destination="wat-BS-1Q8" collectionClass="NSMutableArray" id="kcL-8z-3Ke"/>
+                        <outletCollection property="rateButtons" destination="709-mc-UOc" collectionClass="NSMutableArray" id="Thn-qD-P8E"/>
+                        <outletCollection property="rateButtons" destination="Ffz-sZ-IyY" collectionClass="NSMutableArray" id="49K-Pa-skg"/>
+                        <outletCollection property="rateButtons" destination="Acr-Ai-8oh" collectionClass="NSMutableArray" id="Iab-qW-ZuJ"/>
+                        <outletCollection property="rateButtons" destination="tft-ge-Hmc" collectionClass="NSMutableArray" id="qWc-Ad-i4q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EeI-Y8-QIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LBz-xs-Jlz" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2287" y="283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfe-mm-KPR">
@@ -420,8 +556,17 @@
         <segue reference="EbE-f3-krC"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="angry" width="78" height="103"/>
+        <image name="cool" width="78" height="83"/>
+        <image name="happy" width="78" height="86"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="love" width="78" height="82"/>
+        <image name="sad" width="78" height="87"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="NavigationBarTitle">
+            <color red="0.85490196078431369" green="0.37647058823529411" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -30,6 +30,7 @@ class RestaurantDetailHeaderView: UIView {
     }
     @IBOutlet var restaurantImageView: UIImageView!
     @IBOutlet var heartButton: UIButton!
+    @IBOutlet var ratingImageView: UIImageView!
 
     /*
     // Only override draw() if you perform custom drawing.
