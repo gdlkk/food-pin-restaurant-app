@@ -37,6 +37,7 @@
 		9D39814E25DFE40900025B4C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		9D39814F25DFE40900025B4C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		9D39815325DFEBDA00025B4C /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailHeaderView.swift; sourceTree = "<group>"; };
+		9D444C3525EE497200C8D2CA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D57DA3E25E12661001D5DCE /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		9D60D31B25EBECEE0093785A /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		9D60D31E25EBF20D0093785A /* NewRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantController.swift; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 				9DE4C0D325CA070400FA2943 /* Assets.xcassets */,
 				9DE4C0D825CA070400FA2943 /* Info.plist */,
 				9DE4C0CC25CA070100FA2943 /* SceneDelegate.swift */,
+				9D444C3525EE497200C8D2CA /* README.md */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
