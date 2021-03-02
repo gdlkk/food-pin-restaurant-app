@@ -9,7 +9,7 @@ Application written in Swift. The goal of a task was to create App to search for
 * [Contact](#contact)
 
 ## General info
-This is simple iOS app I've created as part of the course from AppCoda 
+This is iOS app I've created as part of the course from AppCoda 
 
 ## Technologies
 * Swift 5.3
