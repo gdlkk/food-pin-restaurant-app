@@ -11,6 +11,7 @@ class RestaurantDetailViewController: UIViewController {
     
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var heartButton: UIBarButtonItem!
    
     @IBAction func close(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
@@ -24,6 +25,11 @@ class RestaurantDetailViewController: UIViewController {
                 self.restaurant.rating = rating
                 self.headerView.ratingImageView.image = UIImage(named: rating.image)
             }
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                appDelegate.saveContext()
+            }
+            
             let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
             self.headerView.ratingImageView.transform = scaleTransform
             self.headerView.ratingImageView.alpha = 0
@@ -44,11 +50,9 @@ class RestaurantDetailViewController: UIViewController {
         
         headerView.restaurantNameLabel.text = restaurant.name
         headerView.restaurantTypeLabel.text = restaurant.type
-        headerView.restaurantImageView.image = UIImage(named: restaurant.image)
+        headerView.restaurantImageView.image = UIImage(data: restaurant.image)
         
-        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
-        headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
-        headerView.heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
+        favoriteNotFavorite()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,6 +61,10 @@ class RestaurantDetailViewController: UIViewController {
         
         tableView.contentInsetAdjustmentBehavior = .never
         navigationItem.backButtonTitle = ""
+        
+        if let rating = restaurant.rating {
+            headerView.ratingImageView.image = UIImage(named: rating.image)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +72,22 @@ class RestaurantDetailViewController: UIViewController {
         
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func favoriteNotFavorite() {
+        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
+        heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
+        heartButton.image = UIImage(systemName: heartImage)
+    }
+    
+    @IBAction func saveFavorite() {
+        restaurant.isFavorite.toggle()
+        
+        favoriteNotFavorite()
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.saveContext()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -80,7 +104,7 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
-                cell.descriptionLabel.text = restaurant.description
+                cell.descriptionLabel.text = restaurant.summary
                 cell.selectionStyle = .none
                 
                 return cell

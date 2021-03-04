@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D25425F25EFAE4B006A0BEE /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D25425D25EFAE4B006A0BEE /* FoodPin.xcdatamodeld */; };
 		9D341ACC25DE8E050095F369 /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D341ACB25DE8E050095F369 /* RestaurantDiffableDataSource.swift */; };
 		9D39815025DFE40900025B4C /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D39814E25DFE40900025B4C /* Nunito-Bold.ttf */; };
 		9D39815125DFE40900025B4C /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D39814F25DFE40900025B4C /* Nunito-Regular.ttf */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D25425E25EFAE4B006A0BEE /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		9D341ACB25DE8E050095F369 /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDiffableDataSource.swift; sourceTree = "<group>"; };
 		9D39814E25DFE40900025B4C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		9D39814F25DFE40900025B4C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				9DE4C0D325CA070400FA2943 /* Assets.xcassets */,
 				9DE4C0D825CA070400FA2943 /* Info.plist */,
 				9DE4C0CC25CA070100FA2943 /* SceneDelegate.swift */,
+				9D25425D25EFAE4B006A0BEE /* FoodPin.xcdatamodeld */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				9D39815425DFEBDA00025B4C /* RestaurantDetailHeaderView.swift in Sources */,
 				9DE4C0E525CA08C900FA2943 /* RestaurantTableViewController.swift in Sources */,
 				9D9D18BE25E3CA7600A068E4 /* MapViewController.swift in Sources */,
+				9D25425F25EFAE4B006A0BEE /* FoodPin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +479,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D25425D25EFAE4B006A0BEE /* FoodPin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D25425E25EFAE4B006A0BEE /* FoodPin.xcdatamodel */,
+			);
+			currentVersion = 9D25425E25EFAE4B006A0BEE /* FoodPin.xcdatamodel */;
+			path = FoodPin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9DE4C0BF25CA070100FA2943 /* Project object */;
 }

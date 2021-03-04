@@ -171,8 +171,23 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emptyRestaurantView" destination="RC2-TV-hD9" id="quw-wc-DlY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewg-It-Prg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Pph-Wo-cVW">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptydata" translatesAutoresizingMaskIntoConstraints="NO" id="RC2-TV-hD9">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="UIX-Tq-Xga"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="743.47826086956525" y="-84.375"/>
         </scene>
@@ -220,18 +235,6 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJa-7B-weS">
-                                    <rect key="frame" x="359" y="18" width="37" height="31"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="31" id="2o6-XS-bqS"/>
-                                        <constraint firstAttribute="width" constant="37" id="6Wz-eA-ELh"/>
-                                    </constraints>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" image="heart" catalog="system">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
-                                    </state>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -240,7 +243,6 @@
                                 <constraint firstAttribute="bottom" secondItem="kbz-pd-i6T" secondAttribute="bottom" id="ALs-zH-umY"/>
                                 <constraint firstAttribute="bottom" secondItem="oGD-HO-oHF" secondAttribute="bottom" constant="20" id="Iaj-Pw-X36"/>
                                 <constraint firstItem="fBW-K5-YlK" firstAttribute="top" secondItem="7Re-ds-vnm" secondAttribute="top" id="QAd-bN-FXG"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="iJa-7B-weS" secondAttribute="trailing" constant="10" id="So9-qP-HDZ"/>
                                 <constraint firstAttribute="trailing" secondItem="oGD-HO-oHF" secondAttribute="trailing" constant="150" id="b6U-sM-Xkv"/>
                                 <constraint firstAttribute="trailing" secondItem="NXy-Mt-Mrh" secondAttribute="trailing" constant="20" id="eyd-HS-hJJ"/>
                                 <constraint firstItem="kbz-pd-i6T" firstAttribute="leading" secondItem="7Re-ds-vnm" secondAttribute="leading" id="iRJ-Qj-i7D"/>
@@ -249,10 +251,8 @@
                                 <constraint firstAttribute="trailing" secondItem="kbz-pd-i6T" secondAttribute="trailing" id="p11-6T-NS6"/>
                                 <constraint firstItem="fBW-K5-YlK" firstAttribute="leading" secondItem="7Re-ds-vnm" secondAttribute="leading" id="vD5-bK-25U"/>
                                 <constraint firstAttribute="trailing" secondItem="fBW-K5-YlK" secondAttribute="trailing" id="yaT-3B-0l1"/>
-                                <constraint firstItem="iJa-7B-weS" firstAttribute="top" secondItem="7Re-ds-vnm" secondAttribute="topMargin" constant="10" id="zil-qR-GH5"/>
                             </constraints>
                             <connections>
-                                <outlet property="heartButton" destination="iJa-7B-weS" id="nF8-LW-F16"/>
                                 <outlet property="ratingImageView" destination="NXy-Mt-Mrh" id="YsS-wz-1tC"/>
                                 <outlet property="restaurantImageView" destination="fBW-K5-YlK" id="COH-Wy-1Ej"/>
                                 <outlet property="restaurantNameLabel" destination="ldQ-N6-kec" id="XIf-Hb-ajd"/>
@@ -403,10 +403,18 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QYv-yY-TQZ"/>
+                    <navigationItem key="navigationItem" id="QYv-yY-TQZ">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="zjT-hV-33e">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveFavorite" destination="jAJ-Hc-Ej5" id="y48-Ag-NQ7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="headerView" destination="7Re-ds-vnm" id="DRU-jc-016"/>
+                        <outlet property="heartButton" destination="zjT-hV-33e" id="3lH-VT-JPE"/>
                         <outlet property="tableView" destination="riy-Wb-uUX" id="TgT-ag-yQO"/>
                     </connections>
                 </viewController>
@@ -810,6 +818,7 @@
     <resources>
         <image name="angry" width="78" height="103"/>
         <image name="cool" width="78" height="83"/>
+        <image name="emptydata" width="1440" height="1024"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
