@@ -21,6 +21,10 @@
 		9DA9391825E01DA600E03350 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9391725E01DA600E03350 /* RestaurantDetailTextCell.swift */; };
 		9DA9391B25E0201A00E03350 /* RestaurantDetailTwoColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9391A25E0201A00E03350 /* RestaurantDetailTwoColumnCell.swift */; };
 		9DB6ED1325E12B9B00D5349B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB6ED1225E12B9B00D5349B /* NavigationController.swift */; };
+		9DDE544425F62C5D00CA352D /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DDE544325F62C5D00CA352D /* Onboarding.storyboard */; };
+		9DDE544725F6359B00CA352D /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE544625F6359B00CA352D /* WalkthroughContentViewController.swift */; };
+		9DDE544A25F637C500CA352D /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE544925F637C500CA352D /* WalkthroughPageViewController.swift */; };
+		9DDE544D25F63D2900CA352D /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE544C25F63D2900CA352D /* WalkthroughViewController.swift */; };
 		9DE3E2F525DBE0AF0025844D /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3E2F425DBE0AF0025844D /* Restaurant.swift */; };
 		9DE4C0CB25CA070100FA2943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4C0CA25CA070100FA2943 /* AppDelegate.swift */; };
 		9DE4C0CD25CA070100FA2943 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4C0CC25CA070100FA2943 /* SceneDelegate.swift */; };
@@ -49,6 +53,10 @@
 		9DA9391725E01DA600E03350 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
 		9DA9391A25E0201A00E03350 /* RestaurantDetailTwoColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTwoColumnCell.swift; sourceTree = "<group>"; };
 		9DB6ED1225E12B9B00D5349B /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		9DDE544325F62C5D00CA352D /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		9DDE544625F6359B00CA352D /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		9DDE544925F637C500CA352D /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		9DDE544C25F63D2900CA352D /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		9DE3E2F425DBE0AF0025844D /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		9DE4C0C725CA070100FA2943 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4C0CA25CA070100FA2943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,9 @@
 				9D9D18BD25E3CA7600A068E4 /* MapViewController.swift */,
 				9DA7929025EA45DB00983ABE /* ReviewViewController.swift */,
 				9D60D31E25EBF20D0093785A /* NewRestaurantController.swift */,
+				9DDE544625F6359B00CA352D /* WalkthroughContentViewController.swift */,
+				9DDE544925F637C500CA352D /* WalkthroughPageViewController.swift */,
+				9DDE544C25F63D2900CA352D /* WalkthroughViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 			children = (
 				9DE4C0D025CA070100FA2943 /* Main.storyboard */,
 				9DE4C0D525CA070400FA2943 /* LaunchScreen.storyboard */,
+				9DDE544325F62C5D00CA352D /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -248,6 +260,7 @@
 				9D39815125DFE40900025B4C /* Nunito-Regular.ttf in Resources */,
 				9DE4C0D725CA070400FA2943 /* LaunchScreen.storyboard in Resources */,
 				9DE4C0D425CA070400FA2943 /* Assets.xcassets in Resources */,
+				9DDE544425F62C5D00CA352D /* Onboarding.storyboard in Resources */,
 				9D39815025DFE40900025B4C /* Nunito-Bold.ttf in Resources */,
 				9DE4C0D225CA070100FA2943 /* Main.storyboard in Resources */,
 			);
@@ -265,6 +278,7 @@
 				9D60D31F25EBF20D0093785A /* NewRestaurantController.swift in Sources */,
 				9DA7929125EA45DB00983ABE /* ReviewViewController.swift in Sources */,
 				9DA9391825E01DA600E03350 /* RestaurantDetailTextCell.swift in Sources */,
+				9DDE544A25F637C500CA352D /* WalkthroughPageViewController.swift in Sources */,
 				9DE4C0E825CA16B700FA2943 /* RestaurantTableViewCell.swift in Sources */,
 				9DE4C0CB25CA070100FA2943 /* AppDelegate.swift in Sources */,
 				9D57DA3F25E12661001D5DCE /* UIColor+Ext.swift in Sources */,
@@ -272,8 +286,10 @@
 				9DE4C0CD25CA070100FA2943 /* SceneDelegate.swift in Sources */,
 				9DEA6DE925E3C02500EF3D84 /* RestaurantDetailMapCell.swift in Sources */,
 				9D341ACC25DE8E050095F369 /* RestaurantDiffableDataSource.swift in Sources */,
+				9DDE544725F6359B00CA352D /* WalkthroughContentViewController.swift in Sources */,
 				9D60D31C25EBECEE0093785A /* RoundedTextField.swift in Sources */,
 				9D7466FD25DFBB840073DD17 /* RestaurantDetailViewController.swift in Sources */,
+				9DDE544D25F63D2900CA352D /* WalkthroughViewController.swift in Sources */,
 				9D39815425DFEBDA00025B4C /* RestaurantDetailHeaderView.swift in Sources */,
 				9DE4C0E525CA08C900FA2943 /* RestaurantTableViewController.swift in Sources */,
 				9D9D18BE25E3CA7600A068E4 /* MapViewController.swift in Sources */,

@@ -12,6 +12,7 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurants: [Restaurant] = []
     var fetchResultController: NSFetchedResultsController<Restaurant>!
+    var searchController: UISearchController!
     
     lazy var dataSource = configureDataSource()
     
@@ -47,6 +48,13 @@ class RestaurantTableViewController: UITableViewController {
         }
         navigationItem.backButtonTitle = ""
         
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search restaurant..."
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.tintColor = UIColor(named: "NavigationBarTitle")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +78,13 @@ class RestaurantTableViewController: UITableViewController {
         tableView.backgroundView?.isHidden = restaurants.count == 0 ? false : true
     }
     
-    func fetchRestaurantData() {
+    func fetchRestaurantData(searchText: String = "") {
         let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        
+        if !searchText.isEmpty {
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+        }
+        
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -82,10 +95,20 @@ class RestaurantTableViewController: UITableViewController {
             
             do {
                 try fetchResultController.performFetch()
-                updateSnapshot()
+                updateSnapshot(animatingChange: searchText.isEmpty ? false : true)
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
         }
     }
     
@@ -151,47 +174,50 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - UISwipeAction Configuration
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            
-            guard let restaurant = self.dataSource.itemIdentifier(for: indexPath)
-            else {
-                return UISwipeActionsConfiguration()
+        if searchController.isActive {
+            return UISwipeActionsConfiguration()
+        }
+        
+        guard let restaurant = self.dataSource.itemIdentifier(for: indexPath)
+        else {
+            return UISwipeActionsConfiguration()
+        }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                    
+                context.delete(restaurant)
+                appDelegate.saveContext()
+                    
+                self.updateSnapshot(animatingChange: true)
             }
-            
-            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
-                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                    let context = appDelegate.persistentContainer.viewContext
-                    
-                    context.delete(restaurant)
-                    appDelegate.saveContext()
-                    
-                    self.updateSnapshot(animatingChange: true)
-                }
                 
-                completionHandler(true)
-            }
+            completionHandler(true)
+        }
         deleteAction.backgroundColor = UIColor.systemRed
         deleteAction.image = UIImage(systemName: "trash")
             
-            let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, completionHandler) in
-                let defaultText = "Just checking in at " + restaurant.name
-                let activityController: UIActivityViewController
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, completionHandler) in
+            let defaultText = "Just checking in at " + restaurant.name
+            let activityController: UIActivityViewController
                 
-                if let imageToShare = UIImage(data: restaurant.image) {
-                    activityController = UIActivityViewController(activityItems: [defaultText,imageToShare], applicationActivities: nil)
-                } else {
-                    activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
-                }
-                
-                if let popoverController = activityController.popoverPresentationController {
-                    if let cell = tableView.cellForRow(at: indexPath) {
-                        popoverController.sourceView = cell
-                        popoverController.sourceRect = cell.bounds
-                    }
-                }
-                
-                self.present(activityController, animated: true, completion: nil)
-                completionHandler(true)
+            if let imageToShare = UIImage(data: restaurant.image) {
+                activityController = UIActivityViewController(activityItems: [defaultText,imageToShare], applicationActivities: nil)
+            } else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             }
+                
+            if let popoverController = activityController.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+                
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+        }
         shareAction.backgroundColor = UIColor.systemOrange
         shareAction.image = UIImage(systemName: "square.and.arrow.up")
         
@@ -235,5 +261,14 @@ class RestaurantTableViewController: UITableViewController {
 extension RestaurantTableViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         updateSnapshot()
+    }
+}
+
+extension RestaurantTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
+        fetchRestaurantData(searchText: searchText)
     }
 }
