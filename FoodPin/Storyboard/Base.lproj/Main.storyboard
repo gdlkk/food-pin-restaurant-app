@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yws-nu-2C0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tCD-4H-PvC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -189,12 +189,12 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="743.47826086956525" y="-84.375"/>
+            <point key="canvasLocation" x="1653.6231884057972" y="-84.375"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="6aE-M2-vIF">
             <objects>
-                <viewController id="jAJ-Hc-Ej5" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="jAJ-Hc-Ej5" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="riy-Wb-uUX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -420,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywv-zg-2nZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-67"/>
+            <point key="canvasLocation" x="2410.144927536232" y="-67.633928571428569"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="ree-Xu-qC5">
@@ -450,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am0-UX-drV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2288" y="-406"/>
+            <point key="canvasLocation" x="3197.1014492753625" y="-406.47321428571428"/>
         </scene>
         <!--New Restaurant-->
         <scene sceneID="Lqs-SW-EuJ">
@@ -770,12 +770,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeI-Y8-QIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="LBz-xs-Jlz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2287" y="275"/>
+            <point key="canvasLocation" x="3197.1014492753625" y="274.55357142857139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="bfe-mm-KPR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yws-nu-2C0" customClass="NavigationController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="tag.fill" catalog="system" id="mrv-gg-hzn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Juy-kd-uE7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -788,7 +789,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDk-af-k9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-166.66666666666669" y="-84.375"/>
+            <point key="canvasLocation" x="743.47826086956525" y="-84.375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IkR-bY-9ft">
@@ -811,6 +812,46 @@
             </objects>
             <point key="canvasLocation" x="1501" y="-1098"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="BlZ-1t-9vE">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tCD-4H-PvC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C8y-8M-oZf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yws-nu-2C0" kind="relationship" relationship="viewControllers" id="EOc-ZX-dAY"/>
+                        <segue destination="wSq-b5-ZZx" kind="relationship" relationship="viewControllers" id="13i-rs-A6G"/>
+                        <segue destination="3xt-CJ-NbI" kind="relationship" relationship="viewControllers" id="FRu-rV-wlp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l03-jb-33r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166.66666666666669" y="-84.375"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="aPx-66-qOc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" id="3xt-CJ-NbI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="cw4-cG-CPQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwj-BE-kNS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="452"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="c1c-mQ-FeP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" id="wSq-b5-ZZx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="3KN-fr-S0F"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uc4-h3-LX6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="339"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="EbE-f3-krC"/>
@@ -826,6 +867,7 @@
         <image name="newphoto" width="1840" height="1380"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="sad" width="78" height="87"/>
+        <image name="tag.fill" catalog="system" width="128" height="119"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="NavigationBarTitle">
             <color red="0.85490196078431369" green="0.37647058823529411" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
